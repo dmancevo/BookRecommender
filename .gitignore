@@ -1,0 +1,7 @@
+*.json
+*.bin
+*.md
+*.txt
+*.model
+*.pkl
+*.ipynb_checkpoints
