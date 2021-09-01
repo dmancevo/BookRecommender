@@ -6,3 +6,4 @@
 *.pkl
 *.db
 *.ipynb_checkpoints
+*.pyc
