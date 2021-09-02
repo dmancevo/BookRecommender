@@ -13,14 +13,18 @@ if __name__ == "__main__":
     st.header("Book Recommendations")
     st.subheader("The best book recommendations in town!")
     
+    # Recommending engine.
     rec = get_recommender()
     
-    with st.form("search_form"):
-        query = st.text_input("Try: \"A story about medieval England\"")
-        submitted = st.form_submit_button("Search")
-        if submitted:
-            st.write(query)
-            for title, description, url, image_url in rec(query, top_n=4):
-                st.write(title)
-                st.image(image_url)
-                st.write(description)
+    query = st.text_input(("Try: \"medieval England\","
+                           " \"outer space\" or"
+                           " \"stories about women\"  "))
+    if query:
+        for title, description, url, image_url in rec(query, top_n=7):
+            with st.container():
+                st.subheader(f"[{title}]({url})")
+                col1, col2 = st.columns([1,3])
+                with col1:
+                    st.image(image_url, width=150)
+                with col2:
+                    st.write(f"{description[:500]}...")
