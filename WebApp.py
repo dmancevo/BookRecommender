@@ -18,7 +18,7 @@ if __name__ == "__main__":
     
     query = st.text_input(("Try: \"medieval England\","
                            " \"outer space\" or"
-                           " \"stories about women\"  "))
+                           " \"female lead characters\"  "))
     if query:
         for title, description, url, image_url in rec(query, top_n=7):
             with st.container():
